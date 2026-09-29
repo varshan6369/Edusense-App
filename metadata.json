@@ -1,0 +1,6 @@
+{
+  "name": "EduSense: AI Student Analytics",
+  "description": "AI-Powered Student Success & Learning Analytics dashboard featuring Kaggle performance factors dataset analysis, RAG AI study assistant, risk prediction, automated study planner, and interactive Recharts data visualizations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

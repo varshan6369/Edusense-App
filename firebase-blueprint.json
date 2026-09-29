@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "students": {
+      "title": "Students",
+      "description": "EduSense AI student performance records and analytics",
+      "type": "object",
+      "properties": {
+        "studentId": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "class": { "type": "string" },
+        "rollNumber": { "type": "string" },
+        "attendance": { "type": "number" },
+        "studyHours": { "type": "number" },
+        "sleepHours": { "type": "number" },
+        "motivation": { "type": "string" },
+        "internetAccess": { "type": "boolean" },
+        "parentalInvolvement": { "type": "string" },
+        "extracurricular": { "type": "boolean" },
+        "examScores": { "type": "object" },
+        "subjects": { "type": "array" },
+        "attendanceHistory": { "type": "array" },
+        "xp": { "type": "number" },
+        "level": { "type": "number" },
+        "streak": { "type": "number" },
+        "badges": { "type": "array" },
+        "atRisk": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentId", "name", "attendance"]
+    },
+    "chat_logs": {
+      "title": "Chat Logs",
+      "description": "AI Copilot conversation history",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "userRole": { "type": "string" },
+        "userMessage": { "type": "string" },
+        "botReply": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userMessage", "botReply"]
+    },
+    "study_plans": {
+      "title": "Study Plans",
+      "description": "Generated AI weekly study plans",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "weeklyGoal": { "type": "string" },
+        "planData": { "type": "object" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentId", "weeklyGoal"]
+    }
+  },
+  "indexes": [],
+  "securityRules": "rules_version = '2';\nservice cloud.firestore {\n  match /databases/{database}/documents {\n    match /{document=**} {\n      allow read, write: if true;\n    }\n  }\n}"
+}

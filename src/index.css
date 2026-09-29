@@ -1,0 +1,456 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   EDUSENSE DESIGN SYSTEM v3.0
+   Clean, modern dashboard panels with crisp borders & subtle depth
+═══════════════════════════════════════════════════════════════ */
+
+@theme {
+  --font-display: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── GLOBAL BASE ────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --bg-app:   #EEEEF8;
+    --accent:   #6366F1;
+    --accent-2: #8B5CF6;
+    --text-h:   #1A1A2E;
+    --text-b:   #3D3D5C;
+    --text-m:   #9B9BB8;
+  }
+
+  html { color-scheme: light; }
+  .dark { color-scheme: light; }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+    background-color: #EEEEF8;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 8% 10%, rgba(150,140,255,0.10) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 45% at 92% 88%, rgba(180,140,255,0.09) 0%, transparent 55%);
+    color: #1A1A2E;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+    color: #1A1A2E;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GLASS CARD — sleek modern frosted panel
+═══════════════════════════════════════════════════════════════ */
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.05), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -4px rgba(99, 102, 241, 0.10), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+  border-color: rgba(99, 102, 241, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CLEAN MODERN CARDS — sleek flat containers (replaces 3D clay effect)
+═══════════════════════════════════════════════════════════════ */
+.clay-card,
+.stat-card {
+  background: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.clay-card::before,
+.stat-card::before,
+.clay-card::after,
+.stat-card::after {
+  display: none !important;
+}
+
+.clay-card:hover,
+.stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px -4px rgba(99, 102, 241, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
+  border-color: rgba(99, 102, 241, 0.28);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR CARD
+═══════════════════════════════════════════════════════════════ */
+.sidebar-card {
+  background: rgba(255, 255, 255, 0.90);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border-radius: 22px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  box-shadow: 0 8px 30px -4px rgba(99, 102, 241, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR GLASS
+═══════════════════════════════════════════════════════════════ */
+.navbar-glass,
+.glass-navbar {
+  background: rgba(255, 255, 255, 0.80);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-radius: 20px;
+  border: 1px solid rgba(226, 232, 240, 0.85);
+  box-shadow: 0 4px 20px -2px rgba(99, 102, 241, 0.05);
+  transition: box-shadow 0.25s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ACTIVE NAV PILL
+═══════════════════════════════════════════════════════════════ */
+.nav-active {
+  background: linear-gradient(135deg, #6366F1 0%, #7C3AED 100%);
+  color: #FFFFFF !important;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
+}
+.nav-active svg { color: #FFFFFF !important; }
+
+/* ═══════════════════════════════════════════════════════════════
+   SUGGESTION CHIPS
+═══════════════════════════════════════════════════════════════ */
+.suggestion-chip {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(200, 200, 235, 0.6);
+  border-radius: 14px;
+  box-shadow: 0 2px 8px rgba(120, 120, 190, 0.08);
+  transition: all 0.22s ease;
+  cursor: pointer;
+}
+.suggestion-chip:hover {
+  background: #FFFFFF;
+  border-color: rgba(99, 102, 241, 0.35);
+  box-shadow: 0 6px 18px rgba(99, 102, 241, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   NAVBAR PILL BUTTONS (Terminal · Language · Contact)
+═══════════════════════════════════════════════════════════════ */
+.navbar-pill {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  border-radius: 14px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+  transition: all 0.22s ease;
+  cursor: pointer;
+  color: #3D3D5C;
+  font-weight: 600;
+}
+.navbar-pill:hover {
+  background: #FFFFFF;
+  border-color: rgba(99, 102, 241, 0.4);
+  color: #6366F1;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.12);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOCUS RING & CUSTOM SCROLLBAR
+═══════════════════════════════════════════════════════════════ */
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #6366F1;
+  outline-offset: 2px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(180, 180, 215, 0.45);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   DAVID GOGGINS "STAY HARD" GLOBAL DARK THEME (CLEAN & SOPHISTICATED)
+═══════════════════════════════════════════════════════════════ */
+.theme-goggins,
+.theme-goggins html,
+.theme-goggins body,
+.theme-goggins #root {
+  background-color: #0A0C10 !important;
+  background-image:
+    radial-gradient(circle at 15% 15%, rgba(245, 158, 11, 0.06) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(239, 68, 68, 0.05) 0%, transparent 50%) !important;
+  color: #F1F5F9 !important;
+  color-scheme: dark !important;
+  min-height: 100vh;
+}
+
+.theme-goggins h1,
+.theme-goggins h2,
+.theme-goggins h3,
+.theme-goggins h4,
+.theme-goggins h5,
+.theme-goggins h6 {
+  color: #FFFFFF !important;
+}
+
+/* Page Outer Wrapper & Main Layout Backgrounds */
+.theme-goggins [class*="bg-[#EEEEF8]"],
+.theme-goggins [class*="bg-[#F8FAFC]"],
+.theme-goggins [class*="bg-slate-50"],
+.theme-goggins [class*="bg-slate-100"],
+.theme-goggins [class*="bg-indigo-50"],
+.theme-goggins [class*="bg-purple-50"],
+.theme-goggins [class*="bg-amber-50"],
+.theme-goggins [class*="bg-emerald-50"],
+.theme-goggins [class*="bg-cyan-50"],
+.theme-goggins [class*="bg-gray-50"] {
+  background-color: #0E111A !important;
+  color: #F1F5F9 !important;
+}
+
+/* Cards, Modals, Drawers & Containers */
+.theme-goggins .clay-card,
+.theme-goggins .clay-card-sub,
+.theme-goggins .stat-card,
+.theme-goggins .glass-card,
+.theme-goggins .navbar-glass,
+.theme-goggins [class*="bg-white"] {
+  background-color: #121522 !important;
+  border-color: rgba(245, 158, 11, 0.20) !important;
+  color: #F1F5F9 !important;
+}
+
+.theme-goggins .clay-card:hover,
+.theme-goggins .stat-card:hover,
+.theme-goggins .glass-card:hover {
+  border-color: rgba(245, 158, 11, 0.45) !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+}
+
+.theme-goggins .sidebar-clay,
+.theme-goggins aside {
+  background: #0B0D15 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.40) !important;
+}
+
+/* Navbar Pills & Action Buttons in Stay Hard Mode */
+.theme-goggins .navbar-pill {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+  color: #F1F5F9 !important;
+}
+
+.theme-goggins .navbar-pill:hover {
+  background-color: rgba(245, 158, 11, 0.15) !important;
+  border-color: rgba(245, 158, 11, 0.35) !important;
+  color: #FFEDD5 !important;
+}
+
+.theme-goggins kbd {
+  background-color: rgba(0, 0, 0, 0.50) !important;
+  border-color: rgba(245, 158, 11, 0.25) !important;
+  color: #F59E0B !important;
+}
+
+/* Text overrides */
+.theme-goggins .text-\[\#1A1A2E\],
+.theme-goggins .text-slate-900,
+.theme-goggins .text-slate-800,
+.theme-goggins .text-slate-700,
+.theme-goggins .text-gray-900,
+.theme-goggins .text-gray-800 {
+  color: #FFFFFF !important;
+}
+
+.theme-goggins .text-\[\#4A4A6A\],
+.theme-goggins .text-slate-600,
+.theme-goggins .text-slate-500,
+.theme-goggins .text-gray-600 {
+  color: #CBD5E1 !important;
+}
+
+.theme-goggins .text-\[\#9B9BB8\],
+.theme-goggins .text-slate-400,
+.theme-goggins .text-gray-400 {
+  color: #94A3B8 !important;
+}
+
+/* Background fills & borders */
+.theme-goggins .bg-slate-50\/80,
+.theme-goggins .bg-slate-100\/80,
+.theme-goggins .bg-slate-100\/70,
+.theme-goggins .bg-slate-200 {
+  background-color: rgba(255, 255, 255, 0.07) !important;
+  border-color: rgba(255, 85, 0, 0.25) !important;
+  color: #F1F5F9 !important;
+}
+
+.theme-goggins .border-slate-100,
+.theme-goggins .border-slate-200,
+.theme-goggins .border-slate-200\/60,
+.theme-goggins .border-slate-200\/80,
+.theme-goggins .border-slate-300,
+.theme-goggins .border-gray-200 {
+  border-color: rgba(255, 85, 0, 0.30) !important;
+}
+
+/* Inputs & Form Controls */
+.theme-goggins input,
+.theme-goggins select,
+.theme-goggins textarea {
+  background-color: #1A1D2C !important;
+  color: #FFFFFF !important;
+  border-color: rgba(255, 85, 0, 0.40) !important;
+}
+
+.theme-goggins input::placeholder,
+.theme-goggins textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+/* Tables */
+.theme-goggins table {
+  color: #F1F5F9 !important;
+}
+
+.theme-goggins tr {
+  border-bottom-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.theme-goggins th {
+  background-color: #151826 !important;
+  color: #F59E0B !important;
+}
+
+.theme-goggins tr:hover {
+  background-color: rgba(245, 158, 11, 0.06) !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM UI ANIMATIONS & TACTILE MICRO-INTERACTIONS
+═══════════════════════════════════════════════════════════════ */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-4px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.75; transform: scale(1.04); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.3) 50%, rgba(255,255,255,0) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
+.card-interactive {
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card-interactive:hover {
+  transform: translateY(-3px) scale(1.003);
+}
+
+.btn-bounce {
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-bounce:active {
+  transform: scale(0.96);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PRINT STYLES (STRICTLY @media print — ZERO SCREEN CSS IMPACT)
+   Applies to Parent-Teacher and Student Study-Plan Reports
+═══════════════════════════════════════════════════════════════ */
+@media print {
+  header,
+  nav,
+  aside,
+  button,
+  input,
+  select,
+  .no-print,
+  .navbar-glass,
+  .sidebar-card,
+  [role="dialog"] > button {
+    display: none !important;
+  }
+
+  html,
+  body,
+  #root,
+  main {
+    background: #FFFFFF !important;
+    background-image: none !important;
+    color: #1A1A2E !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  .glass-card,
+  .clay-card,
+  .stat-card {
+    box-shadow: none !important;
+    border-color: #E2E8F0 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+
+  @page {
+    margin: 1.2cm;
+    size: auto;
+  }
+}
+
